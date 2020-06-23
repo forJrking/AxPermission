@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="permission_should_show_rationale">本次操作需要 %1$s 权限,请同意开启!</string>
+    <string name="permission_again_show_rationale">
+        %1$s应用缺少必要权限。\n如需正常使用请按步骤开启权限:\n设置-权限-开启%2$s权限-返回。
+    </string>
+    <string name="aop_permission_tip">提示</string>
+    <string name="aop_permission_setting">设置</string>
+    <string name="aop_permission_denied">拒绝</string>
+</resources>

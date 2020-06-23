@@ -1,0 +1,10 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.forjrking.permission">
+
+    <application>
+        <provider
+            android:name=".AxPermission"
+            android:authorities="${applicationId}.AxPermission"
+            android:exported="false"/>
+    </application>
+</manifest>
