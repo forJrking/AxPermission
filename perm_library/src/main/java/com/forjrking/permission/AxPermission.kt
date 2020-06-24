@@ -11,7 +11,6 @@ import com.forjrking.permission.permission.RequestPermListener
 /**
  * @Description:
  * @Author: forJrking
- * @Copyright: 诺瓦
  * @CreateDate: 2020/6/23 18:06
  * @Version: 1.0.0
  */
@@ -26,7 +25,7 @@ class AxPermission : ContentProvider() {
     }
 
     override fun onCreate(): Boolean {
-        PermissionUtils.init(context?.applicationContext as Application?)
+        PermissionUtils.init(context?.applicationContext as Application)
         return true
     }
 

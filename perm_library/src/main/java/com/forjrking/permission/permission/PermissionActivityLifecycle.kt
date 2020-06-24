@@ -15,7 +15,7 @@ import java.util.*
  */
 class PermissionActivityLifecycle : ActivityLifecycleCallbacks {
 
-    private val activities: MutableList<Activity> by lazy { mutableListOf<Activity>() }
+    private val activities by lazy { mutableListOf<Activity>() }
 
     /**
      * 获取可用Activity
@@ -24,7 +24,7 @@ class PermissionActivityLifecycle : ActivityLifecycleCallbacks {
      */
     val activity: Activity?
         get() {
-            if (null == activities || activities.size == 0) {
+            if (activities.isEmpty()) {
                 XLogger.d("not one Activity on stack")
                 return null
             }

@@ -47,7 +47,7 @@ class PermissionAspectJ {
 
         val target = joinPoint.target
 
-        PermissionUtils.getInstance()
+        PermissionUtils.instance
             .request(*permissions)
             .execute(object : RequestPermListener {
                 override fun onAllPermissionsGranted() {
@@ -68,15 +68,14 @@ class PermissionAspectJ {
                             throw IllegalArgumentException()
                         }
                         // DES: 需要监听的回调权限
-                        val annotation: PermissionDenied =
-                            deniedMethod.getAnnotation(PermissionDenied::class.java)
+                        val annotation: PermissionDenied = deniedMethod.getAnnotation(PermissionDenied::class.java)
                         val permission = getPermissions(*annotation.value)
                         val types = deniedMethod.parameterTypes
                         if (permission.isEmpty() || hasPerm(deniedPerms, *permission)) {
                             if (types.size == 1 && types[0].isArray && types[0]
                                     .componentType == String::class.java
                             ) {
-                                deniedMethod.invoke(target, deniedPerms as Any)
+                                deniedMethod.invoke(target, deniedPerms)
                             } else if (types.isEmpty()) {
                                 deniedMethod.invoke(target)
                             } else {

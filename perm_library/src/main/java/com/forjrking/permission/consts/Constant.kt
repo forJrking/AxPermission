@@ -4,8 +4,7 @@ import android.Manifest
 import android.Manifest.permission
 import androidx.annotation.StringDef
 import com.forjrking.permission.consts.Constant.Restriction
-import java.lang.annotation.Retention
-import java.lang.annotation.RetentionPolicy
+
 
 /**
  * DES: 封装常见的高危权限
@@ -16,16 +15,24 @@ import java.lang.annotation.RetentionPolicy
  * TIME: 2019/6/4 0004 下午 4:22
  */
 object Constant {
-    /*** DES: 权限组 包含一组多个类型权限 */
-    const val G_CALENDAR = Manifest.permission_group.CALENDAR
-    const val G_CAMERA = Manifest.permission_group.CAMERA
-    const val G_CONTACTS = Manifest.permission_group.CONTACTS
-    const val G_LOCATION = Manifest.permission_group.LOCATION
-    const val G_MICROPHONE = Manifest.permission_group.MICROPHONE
-    const val G_PHONE = Manifest.permission_group.PHONE
-    const val G_SENSORS = Manifest.permission_group.SENSORS
-    const val G_SMS = Manifest.permission_group.SMS
-    const val G_STORAGE = Manifest.permission_group.STORAGE
+    /*** DES: 日历权限组*/
+    const val G_CALENDAR    = "android.permission-group.CALENDAR"
+    /*** DES: 相机权限组*/
+    const val G_CAMERA      = "android.permission-group.CAMERA"
+    /*** DES: 通讯录权限组*/
+    const val G_CONTACTS    = "android.permission-group.CONTACTS"
+    /*** DES: 定位权限组*/
+    const val G_LOCATION    = "android.permission-group.LOCATION"
+    /*** DES: 麦克风权限组*/
+    const val G_MICROPHONE  = "android.permission-group.MICROPHONE"
+    /*** DES: 电话权限组*/
+    const val G_PHONE       = "android.permission-group.PHONE"
+    /*** DES: 传感器权限组*/
+    const val G_SENSORS     = "android.permission-group.SENSORS"
+    /*** DES: 短信权限组*/
+    const val G_SMS         = "android.permission-group.SMS"
+    /*** DES: 储存权限组*/
+    const val G_STORAGE     = "android.permission-group.STORAGE"
 
     private val GROUP_CALENDAR = arrayOf(
         permission.READ_CALENDAR, permission.WRITE_CALENDAR
@@ -47,6 +54,7 @@ object Constant {
         permission.READ_CALL_LOG, permission.WRITE_CALL_LOG,
         permission.ADD_VOICEMAIL, permission.USE_SIP, permission.PROCESS_OUTGOING_CALLS
     )
+
     private val GROUP_SENSORS = arrayOf(
         permission.BODY_SENSORS
     )
@@ -71,7 +79,7 @@ object Constant {
         return perm.toArray(permArray)
     }
 
-    private fun group2Permissions(@Restriction permission: String): Array<String> {
+    private fun group2Permissions(permission: String): Array<String> {
         // DES: 优先处理权限组
         return when (permission) {
             G_CALENDAR -> GROUP_CALENDAR
@@ -88,15 +96,15 @@ object Constant {
     }
 
     @StringDef(
-        G_CALENDAR,
-        G_CAMERA,
-        G_CONTACTS,
-        G_LOCATION,
-        G_MICROPHONE,
-        G_PHONE,
-        G_SENSORS,
         G_SMS,
+        G_PHONE,
+        G_CAMERA,
+        G_SENSORS,
         G_STORAGE,
+        G_CALENDAR,
+        G_LOCATION,
+        G_CONTACTS,
+        G_MICROPHONE,
         permission.READ_EXTERNAL_STORAGE,
         permission.WRITE_EXTERNAL_STORAGE,
         permission.READ_CALENDAR,
@@ -123,6 +131,8 @@ object Constant {
         permission.RECEIVE_WAP_PUSH,
         permission.RECEIVE_MMS
     )
-    @Retention(RetentionPolicy.SOURCE)
+    @Target(AnnotationTarget.VALUE_PARAMETER, AnnotationTarget.FIELD)
+    @MustBeDocumented
+    @kotlin.annotation.Retention(AnnotationRetention.SOURCE)
     annotation class Restriction
 }
