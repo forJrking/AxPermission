@@ -5,6 +5,7 @@ import android.app.Application
 import android.content.Context
 import android.content.pm.PackageManager
 import androidx.fragment.app.FragmentActivity
+import com.forjrking.permission.consts.Restriction
 import com.forjrking.permission.permission.PermissionXmlCheck.checkManifestPermission
 import com.forjrking.permission.util.XLogger.d
 import java.util.*
@@ -26,7 +27,7 @@ class PermissionUtils {
      * @param permissions 权限列表
      * @return 返回自身链式编程
      */
-    fun request(vararg permissions: String): PermissionUtils {
+    fun request(@Restriction vararg permissions: String): PermissionUtils {
         mPermissions = arrayOf(*permissions)
         return this
     }

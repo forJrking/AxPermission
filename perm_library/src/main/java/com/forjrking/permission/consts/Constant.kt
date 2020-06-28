@@ -2,8 +2,6 @@ package com.forjrking.permission.consts
 
 import android.Manifest
 import android.Manifest.permission
-import androidx.annotation.StringDef
-import com.forjrking.permission.consts.Constant.Restriction
 
 
 /**
@@ -94,45 +92,4 @@ object Constant {
             else -> arrayOf(permission)
         }
     }
-
-    @StringDef(
-        G_SMS,
-        G_PHONE,
-        G_CAMERA,
-        G_SENSORS,
-        G_STORAGE,
-        G_CALENDAR,
-        G_LOCATION,
-        G_CONTACTS,
-        G_MICROPHONE,
-        permission.READ_EXTERNAL_STORAGE,
-        permission.WRITE_EXTERNAL_STORAGE,
-        permission.READ_CALENDAR,
-        permission.WRITE_CALENDAR,
-        permission.CAMERA,
-        permission.READ_CONTACTS,
-        permission.WRITE_CONTACTS,
-        permission.GET_ACCOUNTS,
-        permission.ACCESS_FINE_LOCATION,
-        permission.ACCESS_COARSE_LOCATION,
-        permission.RECORD_AUDIO,
-        permission.BODY_SENSORS,
-        permission.READ_PHONE_STATE,
-        permission.MODIFY_PHONE_STATE,
-        permission.CALL_PHONE,
-        permission.READ_CALL_LOG,
-        permission.WRITE_CALL_LOG,
-        permission.ADD_VOICEMAIL,
-        permission.USE_SIP,
-        permission.PROCESS_OUTGOING_CALLS,
-        permission.SEND_SMS,
-        permission.RECEIVE_SMS,
-        permission.READ_SMS,
-        permission.RECEIVE_WAP_PUSH,
-        permission.RECEIVE_MMS
-    )
-    @Target(AnnotationTarget.VALUE_PARAMETER, AnnotationTarget.FIELD)
-    @MustBeDocumented
-    @kotlin.annotation.Retention(AnnotationRetention.SOURCE)
-    annotation class Restriction
 }

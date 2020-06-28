@@ -84,7 +84,7 @@ private void handleRequestPermission() {
 ```
 2.选用（可以不使用）使用`@PermDenied`标注的方法，会回调被拒绝权限，支持过滤器，默认全部都支持，如下只接受 CAMERA或者SMS 拒绝的权限。
 ```
-@PermDenied({Constant.G_CAMERA,Constant.G_SMS})
+@PermissionDenied({Constant.G_CAMERA,Constant.G_SMS})
 private void permDenied(String[] strings) {
     Toast.makeText(this, "拒绝" + Arrays.toString(strings), Toast.LENGTH_SHORT).show();
 }

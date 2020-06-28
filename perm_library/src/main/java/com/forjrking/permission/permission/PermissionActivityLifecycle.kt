@@ -4,9 +4,7 @@ import android.app.Activity
 import android.app.Application.ActivityLifecycleCallbacks
 import android.os.Build
 import android.os.Bundle
-import android.util.Log.d
 import com.forjrking.permission.util.XLogger
-import java.util.*
 
 /**
  * DES: 权限管理界面栈

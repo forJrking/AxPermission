@@ -26,12 +26,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    @Permission(["AAA"])
-    fun textClick(@Constant.Restriction view: View) {
+    @Permission([Constant.G_CALENDAR,Constant.G_CAMERA])
+    fun textClick(view: View) {
 
     }
 
-    @PermissionDenied(["a"])
+    @PermissionDenied([Constant.G_CALENDAR])
     fun onDie() {
 
     }
